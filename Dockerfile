@@ -1,4 +1,4 @@
-from python:3-slim
+from python:3.11-slim
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
