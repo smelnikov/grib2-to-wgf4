@@ -68,7 +68,6 @@ class GridValues:
     ) -> "GridValues":
         pure_values = curr
         if prev is not None:
-            # TODO: check that subtraction is correct for masked values
             pure_values = curr - prev
         return cls(pure_values)
 
