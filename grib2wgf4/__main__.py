@@ -24,14 +24,14 @@ class FileInfo(NamedTuple):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         prog="grib2wgf4",
-        description="Accepts list of grib2-filenames via stdin "
-        + "and convert them to wgf4 format",
+        description="Reads list of grib2-filenames via stdin "
+        + "and converts them to wgf4 format",
     )
     parser.add_argument(
         type=str,
         dest="outdir",
         action="store",
-        help="Path to output directory, it will be created if doesn't exists.",
+        help="Path to output directory, it will be created if does not exist.",
     )
 
     args = parser.parse_args()

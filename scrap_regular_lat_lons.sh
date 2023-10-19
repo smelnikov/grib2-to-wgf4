@@ -3,11 +3,12 @@ Usage()
 {
 echo "usage: scrap_regular_lat_lons [-h] [source] [outdir]
 
-Scraps every *.regular*.grib2.bz2 file from the source url
+Scraps every *.regular*.grib2.bz2 file from the source URL and uncompress it.
+Both files (compressed and uncompressed) are saved into outdir.
 
 positional arguments:
   source    source URL
-  outdir    path to output directory, it will be created if doesn't exists.
+  outdir    path to output directory, it will be created if does not exist.
 
 
 options:
