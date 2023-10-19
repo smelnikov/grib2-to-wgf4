@@ -9,3 +9,4 @@ RUN pip install -U pip &&  \
     pip install -r requirements.txt
 
 WORKDIR /app
+ENV PYTHONPATH=/app
