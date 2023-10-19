@@ -30,6 +30,6 @@ curl -s $SOURCE \
     | xargs -I% -P10  bash -c "curl -sO -C - '$SOURCE%' && echo %" \
     | xargs -I% -P10 bash -c "bunzip2 -f -k % && echo $PWD'/%' | sed 's/.bz2//'" \
     | sort \
-    | python -m grib2wgf4
+    | python -m grib2wgf4 ./output
 
 ```

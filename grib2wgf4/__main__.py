@@ -1,3 +1,4 @@
+import argparse
 import os
 import re
 import sys
@@ -21,7 +22,21 @@ class FileInfo(NamedTuple):
 
 
 if __name__ == "__main__":
-    outdir = "output"
+    parser = argparse.ArgumentParser(
+        prog="grib2wgf4",
+        description="Accepts list of grib2-filenames via stdin "
+        + "and convert them to wgf4 format",
+    )
+    parser.add_argument(
+        type=str,
+        dest="outdir",
+        action="store",
+        help="Path to output directory, it will be created if doesn't exists.",
+    )
+
+    args = parser.parse_args()
+    outdir = Path(args.outdir)
+
     if sys.stdin.isatty():
         sys.stderr.write("Please, pipe filenames via stdin\n")
         sys.exit(1)
@@ -41,7 +56,9 @@ if __name__ == "__main__":
         g = ma.groupdict()
         date_gen = datetime.strptime(g["dateGen"], "%Y%m%d%H")
         bias = timedelta(hours=int(g["bias"]))
+
         files_info.append(FileInfo(fpath, date_gen, bias))
+
     if errors:
         sys.stderr.writelines(errors)
         sys.exit(1)
@@ -53,7 +70,7 @@ if __name__ == "__main__":
         curr, lats, lons = grb.data()
 
         date_bias = date_gen + bias
-        outpath = Path(f"{outdir}") / date_bias.strftime("%d.%m.%Y_%H:%M_unknown")
+        outpath = outdir / date_bias.strftime("%d.%m.%Y_%H:%M_unknown")
         outpath.mkdir(parents=True, exist_ok=True)
         outpath /= "PRATE.wgf4"
 
