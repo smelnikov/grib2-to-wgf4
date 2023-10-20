@@ -26,7 +26,7 @@ pip install -r requirements.txt
 ### bash scrap_regular_lat_lons.sh
 
 ```
-usage: scrap_regular_lat_lons [-h] [source] [outdir]
+usage: scrap_regular_lat_lons [-h] source outdir
 
 Scraps every *.regular*.grib2.bz2 file from the source URL and uncompress it.
 Both files (compressed and uncompressed) are saved into outdir.
