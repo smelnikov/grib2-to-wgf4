@@ -79,7 +79,10 @@ class GridValues:
 class FileBuilder:
     header: FileHeader
     values: GridValues
-    delimiter = np.array([MISSING_VALUE], dtype="f")
+
+    @property
+    def delimiter(self) -> np.ndarray:
+        return np.array([MISSING_VALUE], dtype="f")
 
     def tofile(self, fid: _IOProtocol) -> None:
         self.header.tofile(fid)
