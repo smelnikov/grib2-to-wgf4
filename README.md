@@ -66,21 +66,21 @@ bash scrap_regular_lat_lons.sh \
 Compressed and uncompressed GRIB2-files will be stored into `/tmp/input`
 
 ```sh
-find /tmp/input -type f | head -4
-/tmp/input/icon-d2_germany_regular-lat-lon_single-level_2023101912_003_2d_tot_prec.grib2.bz2
-/tmp/input/icon-d2_germany_regular-lat-lon_single-level_2023101912_015_2d_tot_prec.grib2
-/tmp/input/icon-d2_germany_regular-lat-lon_single-level_2023101912_047_2d_tot_prec.grib2.bz2
-/tmp/input/icon-d2_germany_regular-lat-lon_single-level_2023101912_038_2d_tot_prec.grib2
+find /tmp/input -type f | sort | head -4
+/tmp/input/icon-d2_germany_regular-lat-lon_single-level_2023101912_000_2d_tot_prec.grib2
+/tmp/input/icon-d2_germany_regular-lat-lon_single-level_2023101912_000_2d_tot_prec.grib2.bz2
+/tmp/input/icon-d2_germany_regular-lat-lon_single-level_2023101912_001_2d_tot_prec.grib2
+/tmp/input/icon-d2_germany_regular-lat-lon_single-level_2023101912_001_2d_tot_prec.grib2.bz2
 ...
 ```
 
 Converted files will be stored into `/tmp/output`
 
 ```sh
-find /tmp/output -type f | head -4
-/tmp/output/19.10.2023_16:00_unknown/PRATE.wgf4
-/tmp/output/20.10.2023_06:00_unknown/PRATE.wgf4
-/tmp/output/21.10.2023_11:00_unknown/PRATE.wgf4
-/tmp/output/19.10.2023_14:00_unknown/PRATE.wgf4
+find /tmp/output -type f | sort | head -4
+/tmp/output/19.10.2023_12:00_1697716800/PRATE.wgf4
+/tmp/output/19.10.2023_13:00_1697720400/PRATE.wgf4
+/tmp/output/19.10.2023_14:00_1697724000/PRATE.wgf4
+/tmp/output/19.10.2023_15:00_1697727600/PRATE.wgf4
 ...
 ```

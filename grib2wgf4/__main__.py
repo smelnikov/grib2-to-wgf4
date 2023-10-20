@@ -70,7 +70,9 @@ if __name__ == "__main__":
         curr, lats, lons = grb.data()
 
         date_bias = date_gen + bias
-        outpath = outdir / date_bias.strftime("%d.%m.%Y_%H:%M_unknown")
+        outpath = outdir / date_bias.strftime(
+            f"%d.%m.%Y_%H:%M_{int( date_bias.timestamp() )}"
+        )
         outpath.mkdir(parents=True, exist_ok=True)
         outpath /= "PRATE.wgf4"
 
